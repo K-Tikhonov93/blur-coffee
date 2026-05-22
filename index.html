@@ -71,9 +71,10 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 .t-line { width:40px;height:1px;background:rgba(255,255,255,.15);margin:24px 0; }
 
 /* GALLERY */
-.gallery { display:flex;overflow-x:auto;gap:0;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory; }
+.gallery { display:flex;overflow-x:auto;gap:0;-webkit-overflow-scrolling:touch;cursor:grab; }
 .gallery::-webkit-scrollbar { display:none; }
-.gallery-item { flex:0 0 40vw;min-width:300px;height:50vh;min-height:360px;position:relative;overflow:hidden;scroll-snap-align:start; }
+.gallery.dragging { cursor:grabbing; }
+.gallery-item { flex:0 0 40vw;min-width:300px;height:50vh;min-height:360px;position:relative;overflow:hidden; }
 @media(max-width:768px) { .gallery-item { flex:0 0 85vw; } }
 .gallery-item img { width:100%;height:100%;object-fit:cover;transition:transform .6s; }
 .gallery-item:hover img { transform:scale(1.03); }
@@ -218,7 +219,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 
 <!-- GALLERY -->
 <section style="padding:0;">
-  <div class="gallery">
+  <div class="gallery" id="gallery">
     <div class="gallery-item"><img src="img/barista-portafilter.jpg" alt="" loading="lazy"></div>
     <div class="gallery-item"><img src="img/latte-hands.jpg" alt="" loading="lazy"></div>
     <div class="gallery-item"><img src="img/pastries.jpg" alt="" loading="lazy"></div>
@@ -383,6 +384,22 @@ if(typeof localStorage!=='undefined'&&localStorage.getItem('blur_cookie'))docume
 var obs=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:0.12});
 document.querySelectorAll('.fade').forEach(function(el){obs.observe(el)});
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+
+// Gallery auto-scroll
+(function(){
+  var g=document.getElementById('gallery'),speed=0.5,paused=false,dragging=false,startX,scrollStart;
+  function autoScroll(){if(!paused&&!dragging){g.scrollLeft+=speed;if(g.scrollLeft>=g.scrollWidth-g.clientWidth){g.scrollLeft=0}}requestAnimationFrame(autoScroll)}
+  g.addEventListener('mouseenter',function(){paused=true});
+  g.addEventListener('mouseleave',function(){paused=false;dragging=false;g.classList.remove('dragging')});
+  g.addEventListener('mousedown',function(e){dragging=true;g.classList.add('dragging');startX=e.pageX-g.offsetLeft;scrollStart=g.scrollLeft;e.preventDefault()});
+  window.addEventListener('mouseup',function(){dragging=false;g.classList.remove('dragging')});
+  window.addEventListener('mousemove',function(e){if(!dragging)return;var x=e.pageX-g.offsetLeft;g.scrollLeft=scrollStart-(x-startX)});
+  var touchStart;
+  g.addEventListener('touchstart',function(e){paused=true;touchStart=e.touches[0].pageX;scrollStart=g.scrollLeft},{passive:true});
+  g.addEventListener('touchmove',function(e){var x=e.touches[0].pageX;g.scrollLeft=scrollStart-(x-touchStart)},{passive:true});
+  g.addEventListener('touchend',function(){paused=false});
+  requestAnimationFrame(autoScroll);
+})();
 </script>
 
 </body>
