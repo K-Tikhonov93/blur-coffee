@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blur — Specialty Coffee · Torrevieja</title>
+<meta name="description" content="Specialty coffee, brunch & wine in the heart of Torrevieja, Spain. Join our community of coffee lovers and remote workers.">
+<meta property="og:title" content="Blur — Specialty Coffee · Torrevieja">
+<meta property="og:description" content="Specialty coffee, brunch & wine in Torrevieja, Spain.">
+<meta property="og:image" content="img/hero.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700;900&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #7474C1;
+  --yellow: #FCD672;
+  --dark: #0a0a0a;
+  --off: #F5F4F0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; overflow-x:hidden; }
+
+/* NAV */
+.nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;transition:background .4s,padding .4s; }
+.nav.scrolled { background:rgba(10,10,10,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:16px 48px; }
+@media(max-width:768px) { .nav { padding:18px 20px; } .nav.scrolled { padding:14px 20px; } }
+.nav-logo { font-family:'Montserrat';font-weight:200;font-size:24px;letter-spacing:8px;color:#fff;text-decoration:none; }
+.nav-right { display:flex;align-items:center;gap:32px; }
+.nav-right a { font-family:'Raleway';font-weight:200;font-size:12px;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:2px;transition:color .3s; }
+.nav-right a:hover { color:#fff; }
+@media(max-width:768px) { .nav-right { display:none; } }
+.nav-lang { font-size:11px;padding:4px 12px;border:1px solid rgba(255,255,255,.12);border-radius:20px;color:rgba(255,255,255,.35);cursor:pointer;background:none;font-family:'Raleway';letter-spacing:1px;transition:border-color .3s; }
+.nav-lang:hover { border-color:rgba(255,255,255,.3); }
+.burger { display:none;cursor:pointer;flex-direction:column;gap:5px;z-index:210; }
+@media(max-width:768px) { .burger { display:flex; } }
+.burger div { width:22px;height:1px;background:#fff;transition:all .3s; }
+.burger.open div:nth-child(1) { transform:rotate(45deg) translate(3px,4px); }
+.burger.open div:nth-child(2) { opacity:0; }
+.burger.open div:nth-child(3) { transform:rotate(-45deg) translate(3px,-4px); }
+.mob-menu { position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,.96);z-index:195;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .4s; }
+.mob-menu.open { opacity:1;pointer-events:all; }
+.mob-menu a { font-family:'Montserrat';font-weight:200;font-size:22px;color:#fff;text-decoration:none;letter-spacing:5px; }
+
+/* FULL SECTION */
+.full { position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center; }
+.full-img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; }
+.full-overlay { position:absolute;inset:0; }
+.full-content { position:relative;z-index:2;text-align:center;padding:20px;max-width:700px; }
+
+/* SPLIT SECTIONS */
+.split { display:grid;grid-template-columns:1fr 1fr;min-height:80vh; }
+@media(max-width:768px) { .split { grid-template-columns:1fr;min-height:auto; } }
+.split-img { position:relative;overflow:hidden;min-height:450px; }
+@media(max-width:768px) { .split-img { min-height:350px; } }
+.split-img img { width:100%;height:100%;object-fit:cover;position:absolute;inset:0; }
+.split-text { display:flex;flex-direction:column;justify-content:center;padding:72px 64px; }
+@media(max-width:768px) { .split-text { padding:48px 24px; } }
+
+/* TYPOGRAPHY */
+.t-huge { font-family:'Montserrat';font-weight:200;font-size:72px;letter-spacing:12px;line-height:1; }
+@media(max-width:768px) { .t-huge { font-size:44px;letter-spacing:6px; } }
+.t-large { font-family:'Montserrat';font-weight:200;font-size:42px;letter-spacing:6px;line-height:1.2; }
+@media(max-width:768px) { .t-large { font-size:28px;letter-spacing:3px; } }
+.t-medium { font-family:'Montserrat';font-weight:200;font-size:24px;letter-spacing:4px;line-height:1.4; }
+@media(max-width:768px) { .t-medium { font-size:18px;letter-spacing:2px; } }
+.t-body { font-family:'Raleway';font-weight:200;font-size:15px;line-height:2;color:rgba(255,255,255,.45);letter-spacing:.5px; }
+.t-label { font-family:'Montserrat';font-weight:400;font-size:10px;letter-spacing:4px;text-transform:uppercase; }
+.t-line { width:40px;height:1px;background:rgba(255,255,255,.15);margin:24px 0; }
+
+/* GALLERY */
+.gallery { display:flex;overflow-x:auto;gap:0;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory; }
+.gallery::-webkit-scrollbar { display:none; }
+.gallery-item { flex:0 0 40vw;min-width:300px;height:50vh;min-height:360px;position:relative;overflow:hidden;scroll-snap-align:start; }
+@media(max-width:768px) { .gallery-item { flex:0 0 85vw; } }
+.gallery-item img { width:100%;height:100%;object-fit:cover;transition:transform .6s; }
+.gallery-item:hover img { transform:scale(1.03); }
+
+/* MENU */
+.menu-row { display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06); }
+.menu-name { font-family:'Montserrat';font-weight:200;font-size:16px;letter-spacing:2px;color:#fff; }
+.menu-price { font-family:'Montserrat';font-weight:200;font-size:14px;color:rgba(255,255,255,.25); }
+
+/* FAQ */
+.faq-item { border-bottom:1px solid rgba(255,255,255,.06); }
+.faq-q { display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer; }
+.faq-q span:first-child { font-family:'Montserrat';font-weight:200;font-size:15px;letter-spacing:2px; }
+.faq-toggle { font-family:'Montserrat';font-weight:200;font-size:20px;color:var(--purple);transition:transform .3s; }
+.faq-toggle.open { transform:rotate(45deg); }
+.faq-a { max-height:0;overflow:hidden;transition:max-height .3s ease; }
+.faq-a.open { max-height:120px; }
+.faq-a p { font-family:'Raleway';font-weight:200;font-size:14px;line-height:1.8;color:rgba(255,255,255,.3);padding-bottom:20px; }
+
+/* FORM */
+.form-input { width:100%;height:44px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.08);padding:0;font-family:'Raleway';font-weight:200;font-size:14px;color:#fff;letter-spacing:1px;outline:none;margin-bottom:4px; }
+.form-input::placeholder { color:rgba(255,255,255,.18); }
+.form-input:focus { border-color:var(--purple); }
+.form-textarea { width:100%;height:80px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.08);padding:12px 0;font-family:'Raleway';font-weight:200;font-size:14px;color:#fff;letter-spacing:1px;outline:none;resize:none;margin-bottom:4px; }
+.form-textarea::placeholder { color:rgba(255,255,255,.18); }
+.form-textarea:focus { border-color:var(--purple); }
+.form-btn { margin-top:28px;padding:14px 48px;background:transparent;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:4px;cursor:pointer;transition:all .3s; }
+.form-btn:hover { background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.25);color:#fff; }
+
+/* PARTNERS */
+.partners { display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:52px 48px; }
+@media(max-width:768px) { .partners { gap:20px;padding:36px 20px; } }
+.partner { font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.12);text-transform:uppercase;transition:color .3s; }
+.partner:hover { color:rgba(255,255,255,.45); }
+
+/* FOOTER */
+.footer { padding:52px 48px 32px;text-align:center;border-top:1px solid rgba(255,255,255,.04); }
+@media(max-width:768px) { .footer { padding:36px 20px 24px; } }
+
+/* COOKIE */
+.cookie { position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:200;border-top:1px solid rgba(255,255,255,.04); }
+@media(max-width:768px) { .cookie { padding:14px 20px;gap:10px;flex-wrap:wrap; } }
+.cookie p { font-family:'Raleway';font-weight:200;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.5px; }
+.cookie-btn { padding:8px 20px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:all .3s; }
+.cookie-btn:hover { border-color:rgba(255,255,255,.25);color:#fff; }
+.cookie-ok { padding:8px 20px;background:var(--purple);border:1px solid var(--purple);color:#fff;font-family:'Montserrat';font-weight:300;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:opacity .3s; }
+.cookie-ok:hover { opacity:.85; }
+
+/* ANIMATIONS */
+.fade { opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease; }
+.fade.vis { opacity:1;transform:translateY(0); }
+
+/* PLACEHOLDER */
+.ph { font-size:10px;color:var(--purple);font-style:italic;opacity:.45;margin-top:14px;letter-spacing:1px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">BLUR</a>
+  <div class="nav-right">
+    <a href="#about">ABOUT</a>
+    <a href="#menu">MENU</a>
+    <a href="#club">CLUB</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">CONTACT</a>
+    <button class="nav-lang" onclick="this.textContent=this.textContent==='EN / ES'?'ES / EN':'EN / ES'">EN / ES</button>
+  </div>
+  <div class="burger" id="burger" onclick="this.classList.toggle('open');document.getElementById('mob').classList.toggle('open')">
+    <div></div><div></div><div></div>
+  </div>
+</nav>
+<div class="mob-menu" id="mob">
+  <a href="#about" onclick="closeMob()">ABOUT</a>
+  <a href="#menu" onclick="closeMob()">MENU</a>
+  <a href="#club" onclick="closeMob()">CLUB</a>
+  <a href="#faq" onclick="closeMob()">FAQ</a>
+  <a href="#contact" onclick="closeMob()">CONTACT</a>
+</div>
+
+<!-- HERO -->
+<section class="full">
+  <img class="full-img" src="img/hero.jpg" alt="Blur Coffee interior" loading="eager">
+  <div class="full-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 100%);"></div>
+  <div class="full-content">
+    <div class="t-label" style="color:var(--yellow);margin-bottom:28px;">SPECIALTY COFFEE · TORREVIEJA</div>
+    <div class="t-huge">BLUR</div>
+    <div style="width:40px;height:1px;background:rgba(255,255,255,.2);margin:24px auto;"></div>
+    <p class="t-body" style="color:rgba(255,255,255,.5);">Coffee · Brunch · Wine</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="split" id="about">
+  <div class="split-img">
+    <img src="img/about-latte.jpg" alt="Latte art" loading="lazy">
+  </div>
+  <div class="split-text" style="background:var(--dark);">
+    <div class="fade">
+      <div class="t-label" style="color:var(--purple);margin-bottom:20px;">ABOUT US</div>
+      <div class="t-large" style="margin-bottom:20px;">Where coffee<br>becomes craft</div>
+      <div class="t-line"></div>
+      <p class="t-body">
+        We believe specialty coffee deserves more than a quick takeaway.
+        Blur is a space to slow down, connect, and enjoy every cup with intention.
+        From bean selection to the final pour — every detail matters.
+      </p>
+      <p class="ph">* Placeholder — waiting for Misha's text</p>
+    </div>
+  </div>
+</section>
+
+<!-- FULL — BARISTA -->
+<section class="full" style="height:70vh;min-height:400px;">
+  <img class="full-img" src="img/barista-blur.jpg" alt="Barista at Blur" loading="lazy">
+  <div class="full-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55) 100%);"></div>
+  <div class="full-content" style="position:absolute;bottom:52px;left:52px;text-align:left;right:52px;">
+    <div class="fade">
+      <div class="t-label" style="color:rgba(255,255,255,.35);">EVERY CUP TELLS A STORY</div>
+    </div>
+  </div>
+</section>
+
+<!-- SEA -->
+<section class="split" style="direction:rtl;">
+  <div class="split-img" style="direction:ltr;">
+    <img src="img/sea-coffee.jpg" alt="Coffee by the sea" loading="lazy">
+  </div>
+  <div class="split-text" style="direction:ltr;background:var(--dark);">
+    <div class="fade">
+      <div class="t-label" style="color:var(--yellow);margin-bottom:20px;">TORREVIEJA, SPAIN</div>
+      <div class="t-large" style="margin-bottom:20px;">Coffee<br>by the sea</div>
+      <div class="t-line"></div>
+      <p class="t-body">
+        Specialty coffee with a Mediterranean breeze.
+        Brewed with care, served with love, enjoyed with a view.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="padding:0;">
+  <div class="gallery">
+    <div class="gallery-item"><img src="img/barista-portafilter.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/latte-hands.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/pastries.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/iced-coffee.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/brunch.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/coffee-armchair.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/branded-cup.jpg" alt="" loading="lazy"></div>
+    <div class="gallery-item"><img src="img/sea-v60.jpg" alt="" loading="lazy"></div>
+  </div>
+  <div style="text-align:center;padding:24px;">
+    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.2);text-decoration:none;transition:color .3s;">@BLUR.COFFEE.TORREVIEJA →</a>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="split" id="menu">
+  <div class="split-img">
+    <img src="img/brunch-service.jpg" alt="Brunch" loading="lazy">
+  </div>
+  <div class="split-text" style="background:var(--dark);">
+    <div class="fade">
+      <div class="t-label" style="color:var(--purple);margin-bottom:28px;">MENU</div>
+      <div class="menu-row"><span class="menu-name">Espresso</span><span class="menu-price">€2.50</span></div>
+      <div class="menu-row"><span class="menu-name">Flat White</span><span class="menu-price">€3.50</span></div>
+      <div class="menu-row"><span class="menu-name">V60 Filter</span><span class="menu-price">€4.00</span></div>
+      <div class="menu-row"><span class="menu-name">Matcha Latte</span><span class="menu-price">€4.50</span></div>
+      <div class="menu-row"><span class="menu-name">Cold Brew</span><span class="menu-price">€3.50</span></div>
+      <div class="menu-row"><span class="menu-name">Cinnamon Roll</span><span class="menu-price">€3.00</span></div>
+      <div class="menu-row"><span class="menu-name">Syrniki</span><span class="menu-price">€7.50</span></div>
+      <p class="ph">* Placeholder — real menu from PDF</p>
+      <div style="margin-top:28px;">
+        <a href="#" style="font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:4px;transition:color .3s;">DOWNLOAD FULL MENU →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL — PASTRIES -->
+<section class="full" style="height:60vh;min-height:350px;">
+  <img class="full-img" src="img/pastries.jpg" alt="Pastries" loading="lazy">
+  <div class="full-overlay" style="background:rgba(0,0,0,.35);"></div>
+  <div class="full-content">
+    <div class="fade">
+      <div class="t-medium">Homemade pastries<br>every morning</div>
+    </div>
+  </div>
+</section>
+
+<!-- RUNNING CLUB -->
+<section class="split" style="direction:rtl;" id="club">
+  <div class="split-img" style="direction:ltr;">
+    <img src="img/branded-cup.jpg" alt="Blur on the go" loading="lazy">
+  </div>
+  <div class="split-text" style="direction:ltr;background:var(--dark);">
+    <div class="fade">
+      <div class="t-label" style="color:var(--yellow);margin-bottom:20px;">COMMUNITY</div>
+      <div class="t-large" style="margin-bottom:20px;">Running<br>Club</div>
+      <div class="t-line"></div>
+      <p class="t-body">
+        Join our weekly runs through Torrevieja.
+        Whether you're training for a marathon or just getting started —
+        everyone is welcome. Meet at Blur, run together, recover with coffee.
+      </p>
+      <p class="ph">* Waiting for details from Misha</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:80px 48px;background:var(--dark);" id="faq">
+  <div class="fade" style="max-width:700px;margin:0 auto;">
+    <div class="t-label" style="color:var(--purple);margin-bottom:36px;text-align:center;">FAQ</div>
+    <div class="faq-item" onclick="toggleFaq(0)"><div class="faq-q"><span>Do you have Wi-Fi?</span><span class="faq-toggle" id="ft0">+</span></div><div class="faq-a" id="fa0"><p>Yes! Free high-speed Wi-Fi for all guests. Perfect for remote work.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(1)"><div class="faq-q"><span>Can I book a table?</span><span class="faq-toggle" id="ft1">+</span></div><div class="faq-a" id="fa1"><p>Walk-ins are welcome. For groups of 6+, message us on Instagram.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(2)"><div class="faq-q"><span>Do you sell beans?</span><span class="faq-toggle" id="ft2">+</span></div><div class="faq-a" id="fa2"><p>Yes — a rotating selection of specialty beans from our partner roasters.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(3)"><div class="faq-q"><span>Do you deliver?</span><span class="faq-toggle" id="ft3">+</span></div><div class="faq-a" id="fa3"><p>Available through Glovo. Search for Blur Coffee Torrevieja.</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="full" style="height:80vh;" id="contact">
+  <img class="full-img" src="img/facade.jpg" alt="Blur Coffee facade" loading="lazy">
+  <div class="full-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.7) 100%);"></div>
+  <div class="full-content" style="position:absolute;bottom:64px;left:52px;text-align:left;right:52px;">
+    <div class="fade">
+      <div class="t-label" style="color:var(--yellow);margin-bottom:16px;">VISIT US</div>
+      <div class="t-large" style="margin-bottom:16px;">Torrevieja,<br>Spain</div>
+      <p class="t-body" style="max-width:360px;">
+        Open daily · Check Instagram for hours<br>
+        <a href="#" style="color:var(--purple);text-decoration:none;">Google Maps →</a>
+      </p>
+      <div style="margin-top:24px;">
+        <a href="#" style="display:inline-block;padding:12px 32px;border:1px solid rgba(255,255,255,.15);font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:3px;color:#fff;text-decoration:none;transition:all .3s;">ORDER ON GLOVO</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHOLESALE -->
+<section class="split">
+  <div class="split-img">
+    <img src="img/retail.jpg" alt="Retail" loading="lazy">
+  </div>
+  <div class="split-text" style="background:var(--dark);">
+    <div class="fade">
+      <div class="t-label" style="color:var(--purple);margin-bottom:20px;">WHOLESALE</div>
+      <div class="t-large" style="margin-bottom:20px;">Partner<br>with us</div>
+      <div class="t-line"></div>
+      <p class="t-body" style="margin-bottom:28px;">
+        Interested in serving Blur coffee at your establishment?
+        Drop us a line.
+      </p>
+      <input type="text" class="form-input" placeholder="Business name">
+      <input type="email" class="form-input" placeholder="Email">
+      <textarea class="form-textarea" placeholder="Tell us about your business..."></textarea>
+      <button class="form-btn">SEND INQUIRY</button>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<div class="partners">
+  <span class="partner">NOMAD</span>
+  <span class="partner">THREE MARKS</span>
+  <span class="partner">INEFFABLE</span>
+  <span class="partner">KIMA</span>
+  <span class="partner">THE MATCHA BOWL</span>
+  <span class="partner">ROA</span>
+  <span class="partner">MINOR FIGURES</span>
+  <span class="partner">ROOFTOP SMOKEHOUSE</span>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div style="font-family:'Montserrat';font-weight:200;font-size:32px;letter-spacing:10px;margin-bottom:16px;">BLUR</div>
+  <p style="font-family:'Raleway';font-weight:200;font-size:11px;color:rgba(255,255,255,.18);letter-spacing:2px;line-height:2.2;">
+    SPECIALTY COFFEE · BRUNCH · WINE<br>
+    TORREVIEJA, ALICANTE, SPAIN
+  </p>
+  <div style="margin-top:24px;display:flex;justify-content:center;gap:28px;">
+    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">INSTAGRAM</a>
+    <a href="#" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GLOVO</a>
+    <a href="#" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
+  </div>
+  <p style="margin-top:36px;font-size:9px;color:rgba(255,255,255,.08);letter-spacing:1px;">
+    © 2025 BLUR COFFEE · PRIVACY POLICY · COOKIES
+  </p>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie" id="cookieBanner">
+  <p>We use cookies to improve your experience. By continuing, you agree to our cookie policy in accordance with GDPR.</p>
+  <button class="cookie-btn" onclick="dismissCookie()">SETTINGS</button>
+  <button class="cookie-ok" onclick="dismissCookie()">ACCEPT</button>
+</div>
+
+<script>
+function closeMob(){document.getElementById('mob').classList.remove('open');document.getElementById('burger').classList.remove('open')}
+function toggleFaq(i){var a=document.getElementById('fa'+i),t=document.getElementById('ft'+i),o=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(function(el){el.classList.remove('open')});document.querySelectorAll('.faq-toggle').forEach(function(el){el.classList.remove('open')});if(!o){a.classList.add('open');t.classList.add('open')}}
+function dismissCookie(){document.getElementById('cookieBanner').style.display='none';try{localStorage.setItem('blur_cookie','1')}catch(e){}}
+if(typeof localStorage!=='undefined'&&localStorage.getItem('blur_cookie'))document.getElementById('cookieBanner').style.display='none';
+var obs=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:0.12});
+document.querySelectorAll('.fade').forEach(function(el){obs.observe(el)});
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+</script>
+
+</body>
+</html>
