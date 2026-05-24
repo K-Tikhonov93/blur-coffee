@@ -139,23 +139,23 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo"><img src="img/logo-black.png" alt="Blur Coffee" style="height:28px;display:block;"></a>
   <div class="nav-right">
-    <a href="#about">ABOUT</a>
-    <a href="#menu">MENU</a>
-    <a href="#club">CLUB</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">CONTACT</a>
-    <button class="nav-lang" onclick="this.textContent=this.textContent==='EN / ES'?'ES / EN':'EN / ES'">EN / ES</button>
+    <a href="#about" data-en="ABOUT" data-es="SOBRE">ABOUT</a>
+    <a href="#menu" data-en="MENU" data-es="CARTA">MENU</a>
+    <a href="#club" data-en="CLUB" data-es="CLUB">CLUB</a>
+    <a href="#faq" data-en="FAQ" data-es="FAQ">FAQ</a>
+    <a href="#contact" data-en="CONTACT" data-es="CONTACTO">CONTACT</a>
+    <button class="nav-lang" id="langBtn" onclick="toggleLang()">EN / ES</button>
   </div>
   <div class="burger" id="burger" onclick="this.classList.toggle('open');document.getElementById('mob').classList.toggle('open')">
     <div></div><div></div><div></div>
   </div>
 </nav>
 <div class="mob-menu" id="mob">
-  <a href="#about" onclick="closeMob()">ABOUT</a>
-  <a href="#menu" onclick="closeMob()">MENU</a>
-  <a href="#club" onclick="closeMob()">CLUB</a>
-  <a href="#faq" onclick="closeMob()">FAQ</a>
-  <a href="#contact" onclick="closeMob()">CONTACT</a>
+  <a href="#about" onclick="closeMob()" data-en="ABOUT" data-es="SOBRE">ABOUT</a>
+  <a href="#menu" onclick="closeMob()" data-en="MENU" data-es="CARTA">MENU</a>
+  <a href="#club" onclick="closeMob()" data-en="CLUB" data-es="CLUB">CLUB</a>
+  <a href="#faq" onclick="closeMob()" data-en="FAQ" data-es="FAQ">FAQ</a>
+  <a href="#contact" onclick="closeMob()" data-en="CONTACT" data-es="CONTACTO">CONTACT</a>
 </div>
 
 <!-- HERO -->
@@ -163,10 +163,10 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   <img class="full-img" src="img/hero.jpg" alt="Blur Coffee interior" loading="eager">
   <div class="full-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,.75) 100%);"></div>
   <div class="full-content">
-    <div class="t-label" style="color:var(--yellow);margin-bottom:28px;">SPECIALTY COFFEE · TORREVIEJA</div>
+    <div class="t-label" style="color:var(--yellow);margin-bottom:28px;" data-en="SPECIALTY COFFEE · TORREVIEJA" data-es="CAFÉ DE ESPECIALIDAD · TORREVIEJA">SPECIALTY COFFEE · TORREVIEJA</div>
     <div class="t-huge">BLUR</div>
     <div style="width:40px;height:1px;background:rgba(255,255,255,.2);margin:24px auto;"></div>
-    <p class="t-body" style="color:rgba(255,255,255,.5);">Coffee · Brunch · Wine</p>
+    <p class="t-body" style="color:rgba(255,255,255,.5);" data-en="Coffee · Brunch · Wine" data-es="Café · Brunch · Vino">Coffee · Brunch · Wine</p>
   </div>
 </section>
 
@@ -177,13 +177,13 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   </div>
   <div class="split-text" style="background:var(--dark);">
     <div class="fade">
-      <div class="t-label" style="color:var(--purple);margin-bottom:20px;">ABOUT US</div>
-      <div class="t-large" style="margin-bottom:20px;">Where coffee<br>becomes craft</div>
+      <div class="t-label" style="color:var(--purple);margin-bottom:20px;" data-en="ABOUT US" data-es="SOBRE NOSOTROS">ABOUT US</div>
+      <div class="t-large" style="margin-bottom:20px;" data-en="Where coffee becomes craft" data-es="Donde el café se convierte en arte">Where coffee<br>becomes craft</div>
       <div class="t-line"></div>
-      <p class="t-body">
+      <p class="t-body" data-en="We believe specialty coffee deserves more than a quick takeaway. Blur is a space to slow down, connect, and enjoy every cup with intention. From bean selection to the final pour - every detail matters." data-es="Creemos que el café de especialidad merece más que un simple para llevar. Blur es un espacio para relajarse, conectar y disfrutar cada taza con intención. Desde la selección del grano hasta el último vertido - cada detalle importa.">
         We believe specialty coffee deserves more than a quick takeaway.
         Blur is a space to slow down, connect, and enjoy every cup with intention.
-        From bean selection to the final pour — every detail matters.
+        From bean selection to the final pour - every detail matters.
       </p>
       <p class="ph">* Placeholder — waiting for Misha's text</p>
     </div>
@@ -196,7 +196,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   <div class="full-overlay" style="background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55) 100%);"></div>
   <div class="full-content" style="position:absolute;bottom:52px;left:52px;text-align:left;right:52px;">
     <div class="fade">
-      <div class="t-label" style="color:rgba(255,255,255,.35);">EVERY CUP TELLS A STORY</div>
+      <div class="t-label" style="color:rgba(255,255,255,.35);" data-en="EVERY CUP TELLS A STORY" data-es="CADA TAZA CUENTA UNA HISTORIA">EVERY CUP TELLS A STORY</div>
     </div>
   </div>
 </section>
@@ -209,9 +209,9 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   <div class="split-text" style="direction:ltr;background:var(--dark);">
     <div class="fade">
       <div class="t-label" style="color:var(--yellow);margin-bottom:20px;">TORREVIEJA, SPAIN</div>
-      <div class="t-large" style="margin-bottom:20px;">Coffee<br>by the sea</div>
+      <div class="t-large" style="margin-bottom:20px;" data-en="Coffee by the sea" data-es="Café junto al mar">Coffee<br>by the sea</div>
       <div class="t-line"></div>
-      <p class="t-body">
+      <p class="t-body" data-en="Specialty coffee with a Mediterranean breeze. Brewed with care, served with love, enjoyed with a view." data-es="Café de especialidad con brisa mediterránea. Preparado con cuidado, servido con amor, disfrutado con vistas.">
         Specialty coffee with a Mediterranean breeze.
         Brewed with care, served with love, enjoyed with a view.
       </p>
@@ -243,17 +243,21 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   </div>
   <div class="split-text" style="background:var(--dark);">
     <div class="fade">
-      <div class="t-label" style="color:var(--purple);margin-bottom:28px;">MENU</div>
-      <div class="menu-row"><span class="menu-name">Espresso</span><span class="menu-price">€2.50</span></div>
-      <div class="menu-row"><span class="menu-name">Flat White</span><span class="menu-price">€3.50</span></div>
-      <div class="menu-row"><span class="menu-name">V60 Filter</span><span class="menu-price">€4.00</span></div>
-      <div class="menu-row"><span class="menu-name">Matcha Latte</span><span class="menu-price">€4.50</span></div>
-      <div class="menu-row"><span class="menu-name">Cold Brew</span><span class="menu-price">€3.50</span></div>
-      <div class="menu-row"><span class="menu-name">Cinnamon Roll</span><span class="menu-price">€3.00</span></div>
-      <div class="menu-row"><span class="menu-name">Syrniki</span><span class="menu-price">€7.50</span></div>
-      <p class="ph">* Placeholder — real menu from PDF</p>
+      <div class="t-label" style="color:var(--purple);margin-bottom:28px;" data-en="MENU" data-es="CARTA">MENU</div>
+      <div class="menu-row"><span class="menu-name">Espresso</span><span class="menu-price">€2.7</span></div>
+      <div class="menu-row"><span class="menu-name">Americano</span><span class="menu-price">€3.3</span></div>
+      <div class="menu-row"><span class="menu-name">Cortado</span><span class="menu-price">€3.3</span></div>
+      <div class="menu-row"><span class="menu-name">Cappuccino</span><span class="menu-price">€3.9 / 4.9</span></div>
+      <div class="menu-row"><span class="menu-name">Latte</span><span class="menu-price">€4.4</span></div>
+      <div class="menu-row"><span class="menu-name">Flat White</span><span class="menu-price">€4.4</span></div>
+      <div class="menu-row"><span class="menu-name">Raf</span><span class="menu-price">€6.5</span></div>
+      <div class="menu-row"><span class="menu-name">Hand Brew</span><span class="menu-price">€6.5</span></div>
+      <div class="menu-row"><span class="menu-name">Batch Brew</span><span class="menu-price">€2.8 / 3.9</span></div>
+      <div class="menu-row"><span class="menu-name">Iced Latte</span><span class="menu-price">€4.4</span></div>
+      <div class="menu-row"><span class="menu-name">Bumble</span><span class="menu-price">€5.4</span></div>
+      <div class="menu-row"><span class="menu-name">Espresso Tonic</span><span class="menu-price">€4.9</span></div>
       <div style="margin-top:28px;">
-        <a href="#" style="font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:4px;transition:color .3s;">DOWNLOAD FULL MENU →</a>
+        <a href="img/menu-en.pdf" target="_blank" id="menuLink" style="font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:4px;transition:color .3s;" data-en="DOWNLOAD FULL MENU →" data-es="DESCARGAR CARTA COMPLETA →">DOWNLOAD FULL MENU →</a>
       </div>
     </div>
   </div>
@@ -265,7 +269,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   <div class="full-overlay" style="background:rgba(0,0,0,.35);"></div>
   <div class="full-content">
     <div class="fade">
-      <div class="t-medium">Homemade pastries<br>every morning</div>
+      <div class="t-medium" data-en="Homemade pastries every morning" data-es="Repostería artesanal cada mañana">Homemade pastries<br>every morning</div>
     </div>
   </div>
 </section>
@@ -277,12 +281,12 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   </div>
   <div class="split-text" style="direction:ltr;background:var(--dark);">
     <div class="fade">
-      <div class="t-label" style="color:var(--yellow);margin-bottom:20px;">COMMUNITY</div>
+      <div class="t-label" style="color:var(--yellow);margin-bottom:20px;" data-en="COMMUNITY" data-es="COMUNIDAD">COMMUNITY</div>
       <div class="t-large" style="margin-bottom:20px;">Running<br>Club</div>
       <div class="t-line"></div>
-      <p class="t-body">
+      <p class="t-body" data-en="Join our weekly runs through Torrevieja. Whether you're training for a marathon or just getting started - everyone is welcome. Meet at Blur, run together, recover with coffee." data-es="Únete a nuestras carreras semanales por Torrevieja. Ya sea que entrenes para un maratón o estés empezando - todos son bienvenidos. Quedamos en Blur, corremos juntos, recuperamos con café.">
         Join our weekly runs through Torrevieja.
-        Whether you're training for a marathon or just getting started —
+        Whether you're training for a marathon or just getting started -
         everyone is welcome. Meet at Blur, run together, recover with coffee.
       </p>
       <p class="ph">* Waiting for details from Misha</p>
@@ -294,10 +298,10 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 <section style="padding:80px 48px;background:var(--dark);" id="faq">
   <div class="fade" style="max-width:700px;margin:0 auto;">
     <div class="t-label" style="color:var(--purple);margin-bottom:36px;text-align:center;">FAQ</div>
-    <div class="faq-item" onclick="toggleFaq(0)"><div class="faq-q"><span>Do you have Wi-Fi?</span><span class="faq-toggle" id="ft0">+</span></div><div class="faq-a" id="fa0"><p>Yes! Free high-speed Wi-Fi for all guests. Perfect for remote work.</p></div></div>
-    <div class="faq-item" onclick="toggleFaq(1)"><div class="faq-q"><span>Can I book a table?</span><span class="faq-toggle" id="ft1">+</span></div><div class="faq-a" id="fa1"><p>Walk-ins are welcome. For groups of 6+, message us on Instagram.</p></div></div>
-    <div class="faq-item" onclick="toggleFaq(2)"><div class="faq-q"><span>Do you sell beans?</span><span class="faq-toggle" id="ft2">+</span></div><div class="faq-a" id="fa2"><p>Yes — a rotating selection of specialty beans from our partner roasters.</p></div></div>
-    <div class="faq-item" onclick="toggleFaq(3)"><div class="faq-q"><span>Do you deliver?</span><span class="faq-toggle" id="ft3">+</span></div><div class="faq-a" id="fa3"><p>Available through Glovo. Search for Blur Coffee Torrevieja.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(0)"><div class="faq-q"><span data-en="Do you have Wi-Fi?" data-es="¿Tenéis Wi-Fi?">Do you have Wi-Fi?</span><span class="faq-toggle" id="ft0">+</span></div><div class="faq-a" id="fa0"><p data-en="Yes! Free high-speed Wi-Fi for all guests. Perfect for remote work." data-es="¡Sí! Wi-Fi gratuito de alta velocidad para todos los clientes. Perfecto para trabajar en remoto.">Yes! Free high-speed Wi-Fi for all guests. Perfect for remote work.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(1)"><div class="faq-q"><span data-en="Can I book a table?" data-es="¿Puedo reservar mesa?">Can I book a table?</span><span class="faq-toggle" id="ft1">+</span></div><div class="faq-a" id="fa1"><p data-en="Walk-ins are welcome. For groups of 6+, message us on Instagram." data-es="Sin reserva, bienvenidos. Para grupos de 6+, escríbenos por Instagram.">Walk-ins are welcome. For groups of 6+, message us on Instagram.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(2)"><div class="faq-q"><span data-en="Do you sell beans?" data-es="¿Vendéis café en grano?">Do you sell beans?</span><span class="faq-toggle" id="ft2">+</span></div><div class="faq-a" id="fa2"><p data-en="Yes - a rotating selection of specialty beans from our partner roasters." data-es="Sí - una selección rotativa de granos de especialidad de nuestros tostadores asociados.">Yes - a rotating selection of specialty beans from our partner roasters.</p></div></div>
+    <div class="faq-item" onclick="toggleFaq(3)"><div class="faq-q"><span data-en="Do you deliver?" data-es="¿Hacéis envíos a domicilio?">Do you deliver?</span><span class="faq-toggle" id="ft3">+</span></div><div class="faq-a" id="fa3"><p data-en="Available through Glovo. Search for Blur Coffee Torrevieja." data-es="Disponible a través de Glovo. Busca Blur Coffee Torrevieja.">Available through Glovo. Search for Blur Coffee Torrevieja.</p></div></div>
   </div>
 </section>
 
@@ -307,14 +311,14 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   <div class="full-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,.7) 100%);"></div>
   <div class="full-content" style="position:absolute;bottom:64px;left:52px;text-align:left;right:52px;">
     <div class="fade">
-      <div class="t-label" style="color:var(--yellow);margin-bottom:16px;">VISIT US</div>
+      <div class="t-label" style="color:var(--yellow);margin-bottom:16px;" data-en="VISIT US" data-es="VISÍTANOS">VISIT US</div>
       <div class="t-large" style="margin-bottom:16px;">Torrevieja,<br>Spain</div>
-      <p class="t-body" style="max-width:360px;">
+      <p class="t-body" style="max-width:360px;" data-en="Open daily · Check Instagram for hours" data-es="Abierto todos los días · Consulta Instagram para horarios">
         Open daily · Check Instagram for hours<br>
-        <a href="#" style="color:var(--purple);text-decoration:none;">Google Maps →</a>
+        <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;">Google Maps →</a>
       </p>
       <div style="margin-top:24px;">
-        <a href="#" style="display:inline-block;padding:12px 32px;border:1px solid rgba(255,255,255,.15);font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:3px;color:#fff;text-decoration:none;transition:all .3s;">ORDER ON GLOVO</a>
+        <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="display:inline-block;padding:12px 32px;border:1px solid rgba(255,255,255,.15);font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:3px;color:#fff;text-decoration:none;transition:all .3s;">ORDER ON GLOVO</a>
       </div>
     </div>
   </div>
@@ -327,17 +331,17 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   </div>
   <div class="split-text" style="background:var(--dark);">
     <div class="fade">
-      <div class="t-label" style="color:var(--purple);margin-bottom:20px;">WHOLESALE</div>
-      <div class="t-large" style="margin-bottom:20px;">Partner<br>with us</div>
+      <div class="t-label" style="color:var(--purple);margin-bottom:20px;" data-en="WHOLESALE" data-es="MAYORISTA">WHOLESALE</div>
+      <div class="t-large" style="margin-bottom:20px;" data-en="Partner with us" data-es="Colabora con nosotros">Partner<br>with us</div>
       <div class="t-line"></div>
-      <p class="t-body" style="margin-bottom:28px;">
+      <p class="t-body" style="margin-bottom:28px;" data-en="Interested in serving Blur coffee at your establishment? Drop us a line." data-es="¿Te interesa servir café Blur en tu establecimiento? Escríbenos.">
         Interested in serving Blur coffee at your establishment?
         Drop us a line.
       </p>
       <input type="text" class="form-input" placeholder="Business name">
       <input type="email" class="form-input" placeholder="Email">
       <textarea class="form-textarea" placeholder="Tell us about your business..."></textarea>
-      <button class="form-btn">SEND INQUIRY</button>
+      <button class="form-btn" data-en="SEND INQUIRY" data-es="ENVIAR SOLICITUD">SEND INQUIRY</button>
     </div>
   </div>
 </section>
@@ -363,8 +367,8 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   </p>
   <div style="margin-top:24px;display:flex;justify-content:center;gap:28px;">
     <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">INSTAGRAM</a>
-    <a href="#" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GLOVO</a>
-    <a href="#" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
+    <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GLOVO</a>
+    <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
   </div>
   <p style="margin-top:36px;font-size:9px;color:rgba(255,255,255,.08);letter-spacing:1px;">
     © 2025 BLUR COFFEE · PRIVACY POLICY · COOKIES
@@ -373,9 +377,9 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 
 <!-- COOKIE BANNER -->
 <div class="cookie" id="cookieBanner">
-  <p>We use cookies to improve your experience. By continuing, you agree to our cookie policy in accordance with GDPR.</p>
-  <button class="cookie-btn" onclick="dismissCookie()">SETTINGS</button>
-  <button class="cookie-ok" onclick="dismissCookie()">ACCEPT</button>
+  <p data-en="We use cookies to improve your experience. By continuing, you agree to our cookie policy in accordance with GDPR." data-es="Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra política de cookies conforme al RGPD.">We use cookies to improve your experience. By continuing, you agree to our cookie policy in accordance with GDPR.</p>
+  <button class="cookie-btn" onclick="dismissCookie()" data-en="SETTINGS" data-es="AJUSTES">SETTINGS</button>
+  <button class="cookie-ok" onclick="dismissCookie()" data-en="ACCEPT" data-es="ACEPTAR">ACCEPT</button>
 </div>
 
 <script>
@@ -383,6 +387,24 @@ function closeMob(){document.getElementById('mob').classList.remove('open');docu
 function toggleFaq(i){var a=document.getElementById('fa'+i),t=document.getElementById('ft'+i),o=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(function(el){el.classList.remove('open')});document.querySelectorAll('.faq-toggle').forEach(function(el){el.classList.remove('open')});if(!o){a.classList.add('open');t.classList.add('open')}}
 function dismissCookie(){document.getElementById('cookieBanner').style.display='none';try{localStorage.setItem('blur_cookie','1')}catch(e){}}
 if(typeof localStorage!=='undefined'&&localStorage.getItem('blur_cookie'))document.getElementById('cookieBanner').style.display='none';
+
+// Language toggle
+var currentLang='en';
+function toggleLang(){
+  currentLang=currentLang==='en'?'es':'en';
+  document.documentElement.lang=currentLang;
+  var btn=document.getElementById('langBtn');
+  btn.textContent=currentLang==='en'?'EN / ES':'ES / EN';
+  var menuLink=document.getElementById('menuLink');
+  if(menuLink)menuLink.href='img/menu-'+currentLang+'.pdf';
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    el.textContent=el.getAttribute('data-'+currentLang);
+  });
+  // Form placeholders
+  var ph={en:['Business name','Email','Tell us about your business...'],es:['Nombre del negocio','Correo electrónico','Cuéntanos sobre tu negocio...']};
+  var inputs=document.querySelectorAll('.form-input,.form-textarea');
+  inputs.forEach(function(el,i){if(ph[currentLang][i])el.placeholder=ph[currentLang][i]});
+}
 var obs=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting)el.target.classList.add('vis')})},{threshold:0.12});
 document.querySelectorAll('.fade').forEach(function(el){obs.observe(el)});
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
