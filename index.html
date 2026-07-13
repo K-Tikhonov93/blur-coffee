@@ -11,10 +11,12 @@
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="img/icon_blurcoffee.png">
 <link rel="apple-touch-icon" href="img/icon_blurcoffee.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700;900&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/raleway.woff2" as="font" type="font/woff2" crossorigin>
+<!-- fonts self-hosted below -->
 <style>
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/raleway.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
 :root {
   --purple: #7474C1;
   --yellow: #FCD672;
@@ -29,12 +31,12 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 .nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;transition:background .4s,padding .4s;background:rgba(255,255,255,.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px); }
 .nav.scrolled { background:rgba(255,255,255,.65);padding:16px 48px; }
 @media(max-width:768px) { .nav { padding:18px 20px; } .nav.scrolled { padding:14px 20px; } }
-.nav-logo { font-family:'Montserrat';font-weight:200;font-size:24px;letter-spacing:8px;color:var(--dark);text-decoration:none; }
+.nav-logo { font-family:'Montserrat';font-weight:800;font-size:24px;letter-spacing:8px;color:var(--dark);text-decoration:none; }
 .nav-right { display:flex;align-items:center;gap:32px; }
-.nav-right a { font-family:'Raleway';font-weight:400;font-size:12px;color:rgba(10,10,10,.8);text-decoration:none;letter-spacing:2px;transition:color .3s; }
+.nav-right a { font-family:'Raleway';font-weight:500;font-size:12px;color:rgba(10,10,10,.8);text-decoration:none;letter-spacing:2px;transition:color .3s; }
 .nav-right a:hover { color:var(--dark); }
 @media(max-width:768px) { .nav-right { display:none; } }
-.nav-lang { font-size:11px;padding:4px 12px;border:1px solid rgba(10,10,10,.25);border-radius:20px;color:rgba(10,10,10,.7);cursor:pointer;background:none;font-family:'Raleway';font-weight:400;letter-spacing:1px;transition:border-color .3s; }
+.nav-lang { font-size:11px;padding:4px 12px;border:1px solid rgba(10,10,10,.25);border-radius:20px;color:rgba(10,10,10,.7);cursor:pointer;background:none;font-family:'Raleway';font-weight:500;letter-spacing:1px;transition:border-color .3s; }
 .nav-lang:hover { border-color:rgba(10,10,10,.4); }
 .burger { display:none;cursor:pointer;flex-direction:column;gap:5px;z-index:210; }
 @media(max-width:768px) { .burger { display:flex; } }
@@ -44,7 +46,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 .burger.open div:nth-child(3) { transform:rotate(-45deg) translate(3px,-4px); }
 .mob-menu { position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,10,.96);z-index:195;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .4s; }
 .mob-menu.open { opacity:1;pointer-events:all; }
-.mob-menu a { font-family:'Montserrat';font-weight:200;font-size:22px;color:#fff;text-decoration:none;letter-spacing:5px; }
+.mob-menu a { font-family:'Montserrat';font-weight:800;font-size:22px;color:#fff;text-decoration:none;letter-spacing:5px; }
 
 /* FULL SECTION */
 .full { position:relative;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center; }
@@ -62,14 +64,14 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 @media(max-width:768px) { .split-text { padding:48px 24px; } }
 
 /* TYPOGRAPHY */
-.t-huge { font-family:'Montserrat';font-weight:200;font-size:72px;letter-spacing:12px;line-height:1; }
+.t-huge { font-family:'Montserrat';font-weight:900;font-size:72px;letter-spacing:12px;line-height:1; }
 @media(max-width:768px) { .t-huge { font-size:44px;letter-spacing:6px; } }
-.t-large { font-family:'Montserrat';font-weight:200;font-size:42px;letter-spacing:6px;line-height:1.2; }
+.t-large { font-family:'Montserrat';font-weight:800;font-size:42px;letter-spacing:6px;line-height:1.2; }
 @media(max-width:768px) { .t-large { font-size:28px;letter-spacing:3px; } }
-.t-medium { font-family:'Montserrat';font-weight:200;font-size:24px;letter-spacing:4px;line-height:1.4; }
+.t-medium { font-family:'Montserrat';font-weight:700;font-size:24px;letter-spacing:4px;line-height:1.4; }
 @media(max-width:768px) { .t-medium { font-size:18px;letter-spacing:2px; } }
-.t-body { font-family:'Raleway';font-weight:200;font-size:15px;line-height:2;color:rgba(255,255,255,.45);letter-spacing:.5px; }
-.t-label { font-family:'Montserrat';font-weight:400;font-size:10px;letter-spacing:4px;text-transform:uppercase; }
+.t-body { font-family:'Raleway';font-weight:300;font-size:15px;line-height:2;color:rgba(255,255,255,.45);letter-spacing:.5px; }
+.t-label { font-family:'Montserrat';font-weight:700;font-size:10px;letter-spacing:4px;text-transform:uppercase; }
 .t-line { width:40px;height:1px;background:rgba(255,255,255,.15);margin:24px 0; }
 
 /* GALLERY */
@@ -83,33 +85,33 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 
 /* MENU */
 .menu-row { display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06); }
-.menu-name { font-family:'Montserrat';font-weight:200;font-size:16px;letter-spacing:2px;color:#fff; }
-.menu-price { font-family:'Montserrat';font-weight:200;font-size:14px;color:rgba(255,255,255,.25); }
+.menu-name { font-family:'Montserrat';font-weight:600;font-size:16px;letter-spacing:2px;color:#fff; }
+.menu-price { font-family:'Montserrat';font-weight:500;font-size:14px;color:rgba(255,255,255,.25); }
 
 /* FAQ */
 .faq-item { border-bottom:1px solid rgba(255,255,255,.06); }
 .faq-q { display:flex;justify-content:space-between;align-items:center;padding:22px 0;cursor:pointer; }
-.faq-q span:first-child { font-family:'Montserrat';font-weight:200;font-size:15px;letter-spacing:2px; }
-.faq-toggle { font-family:'Montserrat';font-weight:200;font-size:20px;color:var(--purple);transition:transform .3s; }
+.faq-q span:first-child { font-family:'Montserrat';font-weight:600;font-size:15px;letter-spacing:2px; }
+.faq-toggle { font-family:'Montserrat';font-weight:400;font-size:20px;color:var(--purple);transition:transform .3s; }
 .faq-toggle.open { transform:rotate(45deg); }
 .faq-a { max-height:0;overflow:hidden;transition:max-height .3s ease; }
 .faq-a.open { max-height:120px; }
-.faq-a p { font-family:'Raleway';font-weight:200;font-size:14px;line-height:1.8;color:rgba(255,255,255,.3);padding-bottom:20px; }
+.faq-a p { font-family:'Raleway';font-weight:300;font-size:14px;line-height:1.8;color:rgba(255,255,255,.3);padding-bottom:20px; }
 
 /* FORM */
-.form-input { width:100%;height:44px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.08);padding:0;font-family:'Raleway';font-weight:200;font-size:14px;color:#fff;letter-spacing:1px;outline:none;margin-bottom:4px; }
+.form-input { width:100%;height:44px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.08);padding:0;font-family:'Raleway';font-weight:300;font-size:14px;color:#fff;letter-spacing:1px;outline:none;margin-bottom:4px; }
 .form-input::placeholder { color:rgba(255,255,255,.18); }
 .form-input:focus { border-color:var(--purple); }
-.form-textarea { width:100%;height:80px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.08);padding:12px 0;font-family:'Raleway';font-weight:200;font-size:14px;color:#fff;letter-spacing:1px;outline:none;resize:none;margin-bottom:4px; }
+.form-textarea { width:100%;height:80px;background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.08);padding:12px 0;font-family:'Raleway';font-weight:300;font-size:14px;color:#fff;letter-spacing:1px;outline:none;resize:none;margin-bottom:4px; }
 .form-textarea::placeholder { color:rgba(255,255,255,.18); }
 .form-textarea:focus { border-color:var(--purple); }
-.form-btn { margin-top:28px;padding:14px 48px;background:transparent;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:4px;cursor:pointer;transition:all .3s; }
+.form-btn { margin-top:28px;padding:14px 48px;background:transparent;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:4px;cursor:pointer;transition:all .3s; }
 .form-btn:hover { background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.25);color:#fff; }
 
 /* PARTNERS */
 .partners { display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:52px 48px; }
 @media(max-width:768px) { .partners { gap:20px;padding:36px 20px; } }
-.partner { font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.12);text-transform:uppercase;transition:color .3s; }
+.partner { font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.12);text-transform:uppercase;transition:color .3s; }
 .partner:hover { color:rgba(255,255,255,.45); }
 
 /* FOOTER */
@@ -119,16 +121,16 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 /* COOKIE */
 .cookie { position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:200;border-top:1px solid rgba(255,255,255,.04); }
 @media(max-width:768px) { .cookie { padding:14px 20px;gap:10px;flex-wrap:wrap; } }
-.cookie p { font-family:'Raleway';font-weight:200;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.5px; }
-.cookie-btn { padding:8px 20px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:all .3s; }
+.cookie p { font-family:'Raleway';font-weight:300;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.5px; }
+.cookie-btn { padding:8px 20px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:all .3s; }
 .cookie-btn:hover { border-color:rgba(255,255,255,.25);color:#fff; }
-.cookie-ok { padding:8px 20px;background:var(--purple);border:1px solid var(--purple);color:#fff;font-family:'Montserrat';font-weight:300;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:opacity .3s; }
+.cookie-ok { padding:8px 20px;background:var(--purple);border:1px solid var(--purple);color:#fff;font-family:'Montserrat';font-weight:700;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:opacity .3s; }
 .cookie-ok:hover { opacity:.85; }
 
 /* HOURS BLOCK */
 .hours-grid { display:grid;grid-template-columns:auto 1fr;gap:6px 20px; }
-.hours-day { font-family:'Montserrat';font-weight:200;font-size:14px;color:rgba(255,255,255,.55);letter-spacing:1px; }
-.hours-time { font-family:'Montserrat';font-weight:200;font-size:14px;color:rgba(255,255,255,.3);text-align:right;letter-spacing:1px; }
+.hours-day { font-family:'Montserrat';font-weight:700;font-size:14px;color:rgba(255,255,255,.55);letter-spacing:1px; }
+.hours-time { font-family:'Montserrat';font-weight:500;font-size:14px;color:rgba(255,255,255,.3);text-align:right;letter-spacing:1px; }
 .hours-map-frame { width:75%;aspect-ratio:3/4;max-height:400px;border-radius:8px;overflow:hidden;margin:24px auto 0;border:1px solid rgba(255,255,255,.06); }
 .hours-map-frame iframe { width:100%;height:100%;border:0;filter:grayscale(1) invert(1) brightness(.7) contrast(1.1); }
 
@@ -206,7 +208,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
     <div class="fade">
       <div class="t-label" style="color:var(--yellow);margin-bottom:20px;" data-en="VISIT US" data-es="VISÍTANOS">VISIT US</div>
       <div class="t-large" style="margin-bottom:12px;" data-en="Hours" data-es="Horario">Hours</div>
-      <p style="font-family:'Raleway';font-weight:200;font-size:13px;color:rgba(255,255,255,.35);margin-bottom:24px;line-height:1.6;letter-spacing:.5px;">
+      <p style="font-family:'Raleway';font-weight:300;font-size:13px;color:rgba(255,255,255,.35);margin-bottom:24px;line-height:1.6;letter-spacing:.5px;">
         C. Timonel, 9, 03182<br>Torrevieja, Alicante
       </p>
       <div style="width:32px;height:1px;background:rgba(255,255,255,.1);margin-bottom:24px;"></div>
@@ -218,7 +220,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
       <div class="hours-map-frame">
         <iframe src="https://maps.google.com/maps?q=C.+Timonel+9,+03182+Torrevieja,+Alicante,+Spain&output=embed&z=16" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Blur Coffee on Google Maps"></iframe>
       </div>
-      <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:var(--purple);text-decoration:none;" data-en="GET DIRECTIONS →" data-es="CÓMO LLEGAR →">GET DIRECTIONS →</a>
+      <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:3px;color:var(--purple);text-decoration:none;" data-en="GET DIRECTIONS →" data-es="CÓMO LLEGAR →">GET DIRECTIONS →</a>
     </div>
   </div>
 </section>
@@ -254,7 +256,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
     <div class="gallery-item"><img src="img/sea-v60.jpg" alt="" loading="lazy"></div>
   </div>
   <div style="text-align:center;padding:24px;">
-    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.2);text-decoration:none;transition:color .3s;">@BLUR.COFFEE.TORREVIEJA →</a>
+    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.2);text-decoration:none;transition:color .3s;">@BLUR.COFFEE.TORREVIEJA →</a>
   </div>
 </section>
 
@@ -279,7 +281,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
       <div class="menu-row"><span class="menu-name">Bumble</span><span class="menu-price">€5.4</span></div>
       <div class="menu-row"><span class="menu-name">Espresso Tonic</span><span class="menu-price">€4.9</span></div>
       <div style="margin-top:28px;">
-        <a href="img/menu-en.pdf" target="_blank" id="menuLink" style="font-family:'Montserrat';font-weight:200;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:4px;transition:color .3s;" data-en="DOWNLOAD FULL MENU →" data-es="DESCARGAR CARTA COMPLETA →">DOWNLOAD FULL MENU →</a>
+        <a href="img/menu-en.pdf" target="_blank" id="menuLink" style="font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.35);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:4px;transition:color .3s;" data-en="DOWNLOAD FULL MENU →" data-es="DESCARGAR CARTA COMPLETA →">DOWNLOAD FULL MENU →</a>
       </div>
     </div>
   </div>
@@ -340,7 +342,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
         <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;">Google Maps →</a>
       </p>
       <div style="margin-top:24px;">
-        <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="display:inline-block;padding:12px 32px;border:1px solid rgba(255,255,255,.15);font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:3px;color:#fff;text-decoration:none;transition:all .3s;">ORDER ON GLOVO</a>
+        <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="display:inline-block;padding:12px 32px;border:1px solid rgba(255,255,255,.15);font-family:'Montserrat';font-weight:700;font-size:10px;letter-spacing:3px;color:#fff;text-decoration:none;transition:all .3s;">ORDER ON GLOVO</a>
       </div>
     </div>
   </div>
@@ -382,15 +384,15 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div style="font-family:'Montserrat';font-weight:200;font-size:32px;letter-spacing:10px;margin-bottom:16px;">BLUR</div>
-  <p style="font-family:'Raleway';font-weight:200;font-size:11px;color:rgba(255,255,255,.18);letter-spacing:2px;line-height:2.2;">
+  <div style="font-family:'Montserrat';font-weight:900;font-size:32px;letter-spacing:10px;margin-bottom:16px;">BLUR</div>
+  <p style="font-family:'Raleway';font-weight:300;font-size:11px;color:rgba(255,255,255,.18);letter-spacing:2px;line-height:2.2;">
     SPECIALTY COFFEE · BRUNCH · WINE<br>
     TORREVIEJA, ALICANTE, SPAIN
   </p>
   <div style="margin-top:24px;display:flex;justify-content:center;gap:28px;">
-    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">INSTAGRAM</a>
-    <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GLOVO</a>
-    <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:200;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
+    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">INSTAGRAM</a>
+    <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GLOVO</a>
+    <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
   </div>
   <p style="margin-top:36px;font-size:9px;color:rgba(255,255,255,.08);letter-spacing:1px;">
     © 2025 BLUR COFFEE · PRIVACY POLICY · COOKIES
