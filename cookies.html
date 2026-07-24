@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy — Blur Coffee</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="img/icon_blurcoffee.png">
+<link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/raleway.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Montserrat';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/montserrat.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Raleway';font-style:normal;font-weight:100 900;font-display:swap;src:url('fonts/raleway.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+:root{--purple:#7474C1;--yellow:#FCD672;--dark:#0a0a0a;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);font-family:'Raleway',sans-serif;color:#fff;-webkit-font-smoothing:antialiased;}
+.top{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;background:#fff;border-bottom:1px solid rgba(10,10,10,.06);}
+@media(max-width:768px){.top{padding:16px 20px;}}
+.top-logo img{height:26px;display:block;}
+.top-right{display:flex;align-items:center;gap:20px;}
+.top-back{font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:2px;color:rgba(10,10,10,.7);text-decoration:none;transition:color .3s;}
+.top-back:hover{color:var(--dark);}
+.lang{font-size:11px;padding:4px 12px;border:1px solid rgba(10,10,10,.25);border-radius:20px;color:rgba(10,10,10,.7);cursor:pointer;background:none;font-family:'Raleway';font-weight:500;letter-spacing:1px;}
+.wrap{max-width:760px;margin:0 auto;padding:72px 24px 96px;}
+h1{font-family:'Montserrat';font-weight:900;font-size:38px;letter-spacing:4px;margin-bottom:8px;line-height:1.1;}
+@media(max-width:768px){h1{font-size:28px;letter-spacing:2px;}}
+.updated{font-family:'Raleway';font-weight:300;font-size:12px;color:rgba(255,255,255,.4);letter-spacing:1px;margin-bottom:48px;}
+h2{font-family:'Montserrat';font-weight:700;font-size:16px;letter-spacing:2px;color:var(--yellow);margin:40px 0 14px;text-transform:uppercase;}
+p{font-family:'Raleway';font-weight:300;font-size:15px;line-height:1.85;color:rgba(255,255,255,.75);margin-bottom:14px;}
+ul{margin:0 0 14px 20px;}
+li{font-family:'Raleway';font-weight:300;font-size:15px;line-height:1.85;color:rgba(255,255,255,.75);margin-bottom:6px;}
+a{color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(116,116,193,.4);}
+a:hover{color:#9a9ad6;}
+.fill{background:rgba(252,214,114,.16);color:var(--yellow);padding:1px 6px;border-radius:3px;font-style:normal;font-weight:500;border:1px dashed rgba(252,214,114,.4);}
+table{width:100%;border-collapse:collapse;margin:8px 0 20px;font-size:13px;}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.08);vertical-align:top;}
+th{font-family:'Montserrat';font-weight:700;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.5);text-transform:uppercase;}
+td{font-family:'Raleway';font-weight:300;font-size:14px;color:rgba(255,255,255,.75);line-height:1.6;}
+.tbl-wrap{overflow-x:auto;}
+.foot{border-top:1px solid rgba(255,255,255,.06);margin-top:64px;padding-top:28px;font-family:'Raleway';font-weight:300;font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.5px;}
+[data-lang]{display:none;}
+[data-lang].active{display:block;}
+</style>
+</head>
+<body>
+<div class="top">
+  <a href="index.html" class="top-logo"><img src="img/logo-black.png" alt="Blur Coffee"></a>
+  <div class="top-right">
+    <a href="index.html" class="top-back" data-en="← BACK" data-es="← VOLVER">← BACK</a>
+    <button class="lang" id="langBtn" onclick="toggleLang()">EN / ES</button>
+  </div>
+</div>
+
+<!-- ENGLISH -->
+<div class="wrap" data-lang="en">
+  <h1>Cookie Policy</h1>
+  <p class="updated">Last updated: 24 July 2026</p>
+
+  <h2>1. What are cookies?</h2>
+  <p>Cookies are small text files that a website stores on your device to make it work, remember your choices or gather information. Similar technologies (such as your browser's local storage) work in the same way. This policy explains which ones we use on this website.</p>
+
+  <h2>2. Cookies we use</h2>
+  <p>Blur is a simple, static website. We do <strong>not</strong> use advertising or analytics/tracking cookies. We only use what is strictly necessary, plus a third-party map:</p>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Name</th><th>Type</th><th>Purpose</th><th>Duration</th></tr>
+    <tr><td>blur_cookie</td><td>Strictly necessary (local storage)</td><td>Remembers that you have seen and accepted this cookie notice, so it is not shown again.</td><td>Persistent until you clear it</td></tr>
+    <tr><td>blur_lang</td><td>Strictly necessary (local storage)</td><td>Remembers your language choice (EN / ES).</td><td>Persistent until you clear it</td></tr>
+    <tr><td>Google Maps</td><td>Third-party</td><td>Our location map is embedded from Google Maps, which may set its own cookies when the map loads.</td><td>Set by Google</td></tr>
+  </table>
+  </div>
+
+  <h2>3. Third-party cookies</h2>
+  <p>The embedded map is provided by Google. When it loads, Google may set cookies under its own policies, over which we have no control. You can read more in <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Google's cookie policy</a>.</p>
+
+  <h2>4. How to manage cookies</h2>
+  <p>You can accept or dismiss the notice using the banner shown when you first visit. You can also block or delete cookies at any time through your browser settings — for example in Chrome, Safari, Firefox or Edge, under "Privacy" or "Cookies". Note that blocking the map may prevent it from displaying correctly.</p>
+
+  <h2>5. Contact</h2>
+  <p>For any question about this Cookie Policy, write to us at <a href="mailto:hello@blur.coffee">hello@blur.coffee</a>.</p>
+
+  <p class="foot">Blur — Specialty Coffee · Torrevieja, Alicante, Spain · See also our <a href="privacy.html">Privacy Policy</a>.</p>
+</div>
+
+<!-- ESPAÑOL -->
+<div class="wrap" data-lang="es">
+  <h1>Política de Cookies</h1>
+  <p class="updated">Última actualización: 24 de julio de 2026</p>
+
+  <h2>1. ¿Qué son las cookies?</h2>
+  <p>Las cookies son pequeños archivos de texto que una web guarda en tu dispositivo para funcionar, recordar tus preferencias o recoger información. Tecnologías similares (como el almacenamiento local de tu navegador) funcionan del mismo modo. Esta política explica cuáles usamos en esta web.</p>
+
+  <h2>2. Cookies que utilizamos</h2>
+  <p>Blur es una web sencilla y estática. <strong>No</strong> usamos cookies publicitarias ni de analítica/seguimiento. Solo usamos lo estrictamente necesario, además de un mapa de terceros:</p>
+  <div class="tbl-wrap">
+  <table>
+    <tr><th>Nombre</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr>
+    <tr><td>blur_cookie</td><td>Estrictamente necesaria (local storage)</td><td>Recuerda que ya has visto y aceptado este aviso de cookies, para no mostrarlo de nuevo.</td><td>Persistente hasta que la borres</td></tr>
+    <tr><td>blur_lang</td><td>Estrictamente necesaria (local storage)</td><td>Recuerda tu idioma (EN / ES).</td><td>Persistente hasta que la borres</td></tr>
+    <tr><td>Google Maps</td><td>De terceros</td><td>El mapa de ubicación está incrustado desde Google Maps, que puede instalar sus propias cookies al cargar.</td><td>Establecida por Google</td></tr>
+  </table>
+  </div>
+
+  <h2>3. Cookies de terceros</h2>
+  <p>El mapa incrustado lo proporciona Google. Al cargarse, Google puede instalar cookies según sus propias políticas, sobre las que no tenemos control. Puedes leer más en la <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
+
+  <h2>4. Cómo gestionar las cookies</h2>
+  <p>Puedes aceptar o cerrar el aviso mediante el banner que aparece en tu primera visita. También puedes bloquear o eliminar cookies en cualquier momento desde la configuración de tu navegador — por ejemplo en Chrome, Safari, Firefox o Edge, en el apartado "Privacidad" o "Cookies". Ten en cuenta que bloquearlas puede impedir que el mapa se muestre correctamente.</p>
+
+  <h2>5. Contacto</h2>
+  <p>Para cualquier duda sobre esta Política de Cookies, escríbenos a <a href="mailto:hello@blur.coffee">hello@blur.coffee</a>.</p>
+
+  <p class="foot">Blur — Specialty Coffee · Torrevieja, Alicante, España · Consulta también nuestra <a href="privacy.html">Política de Privacidad</a>.</p>
+</div>
+
+<script>
+var currentLang='en';
+function apply(){
+  document.querySelectorAll('[data-lang]').forEach(function(el){el.classList.toggle('active',el.getAttribute('data-lang')===currentLang);});
+  document.documentElement.lang=currentLang;
+  document.getElementById('langBtn').textContent=currentLang==='en'?'EN / ES':'ES / EN';
+  document.querySelectorAll('[data-en]').forEach(function(el){el.textContent=el.getAttribute('data-'+currentLang);});
+}
+function toggleLang(){currentLang=currentLang==='en'?'es':'en';try{localStorage.setItem('blur_lang',currentLang)}catch(e){}apply();}
+try{var s=localStorage.getItem('blur_lang');if(s==='es')currentLang='es';}catch(e){}
+apply();
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 <meta property="og:image" content="img/hero.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="img/icon_blurcoffee.png">
-<link rel="apple-touch-icon" href="img/icon_blurcoffee.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 <link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/raleway.woff2" as="font" type="font/woff2" crossorigin>
 <!-- fonts self-hosted below -->
@@ -28,8 +28,8 @@ html { scroll-behavior:smooth; }
 body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; overflow-x:hidden; }
 
 /* NAV */
-.nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;transition:background .4s,padding .4s;background:rgba(255,255,255,.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px); }
-.nav.scrolled { background:rgba(255,255,255,.65);padding:16px 48px; }
+.nav { position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:24px 48px;transition:background .4s,padding .4s;background:#fff;border-bottom:1px solid rgba(10,10,10,.06); }
+.nav.scrolled { background:#fff;padding:16px 48px;box-shadow:0 2px 20px rgba(0,0,0,.06); }
 @media(max-width:768px) { .nav { padding:18px 20px; } .nav.scrolled { padding:14px 20px; } }
 .nav-logo { font-family:'Montserrat';font-weight:800;font-size:24px;letter-spacing:8px;color:var(--dark);text-decoration:none; }
 .nav-right { display:flex;align-items:center;gap:32px; }
@@ -111,8 +111,8 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 /* PARTNERS */
 .partners { display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:52px 48px; }
 @media(max-width:768px) { .partners { gap:20px;padding:36px 20px; } }
-.partner { font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.12);text-transform:uppercase;transition:color .3s; }
-.partner:hover { color:rgba(255,255,255,.45); }
+.partner { font-family:'Montserrat';font-weight:600;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.3);text-transform:uppercase;text-decoration:none;transition:color .3s; }
+a.partner:hover { color:var(--yellow); }
 
 /* FOOTER */
 .footer { padding:52px 48px 32px;text-align:center;border-top:1px solid rgba(255,255,255,.04); }
@@ -121,9 +121,10 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
 /* COOKIE */
 .cookie { position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,10,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:200;border-top:1px solid rgba(255,255,255,.04); }
 @media(max-width:768px) { .cookie { padding:14px 20px;gap:10px;flex-wrap:wrap; } }
-.cookie p { font-family:'Raleway';font-weight:300;font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.5px; }
-.cookie-btn { padding:8px 20px;background:transparent;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:all .3s; }
-.cookie-btn:hover { border-color:rgba(255,255,255,.25);color:#fff; }
+.cookie p { font-family:'Raleway';font-weight:400;font-size:12px;color:rgba(255,255,255,.7);letter-spacing:.5px; }
+.cookie-actions { display:flex;align-items:center;gap:12px;flex-shrink:0; }
+.cookie-btn { padding:8px 20px;background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:all .3s; }
+.cookie-btn:hover { border-color:rgba(255,255,255,.5);color:#fff; }
 .cookie-ok { padding:8px 20px;background:var(--purple);border:1px solid var(--purple);color:#fff;font-family:'Montserrat';font-weight:700;font-size:10px;letter-spacing:2px;cursor:pointer;flex-shrink:0;transition:opacity .3s; }
 .cookie-ok:hover { opacity:.85; }
 
@@ -173,7 +174,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
   <div class="full-overlay" style="background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,.75) 100%);"></div>
   <div class="full-content">
     <div class="t-label" style="color:var(--yellow);margin-bottom:28px;" data-en="SPECIALTY COFFEE · TORREVIEJA" data-es="CAFÉ DE ESPECIALIDAD · TORREVIEJA">SPECIALTY COFFEE · TORREVIEJA</div>
-    <div class="t-huge">BLUR</div>
+    <img src="img/logo-white.png" alt="BLUR" style="display:block;width:min(440px,72vw);height:auto;margin:0 auto;">
     <div style="width:40px;height:1px;background:rgba(255,255,255,.2);margin:24px auto;"></div>
     <p class="t-body" style="color:rgba(255,255,255,.5);" data-en="Coffee · Brunch · Wine" data-es="Café · Brunch · Vino">Coffee · Brunch · Wine</p>
   </div>
@@ -214,8 +215,7 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
       <div style="width:32px;height:1px;background:rgba(255,255,255,.1);margin-bottom:24px;"></div>
       <div class="hours-grid">
         <span class="hours-day" data-en="Monday - Friday" data-es="Lunes - Viernes">Monday - Friday</span><span class="hours-time">9:00 - 15:00</span>
-        <span class="hours-day" data-en="Saturday" data-es="Sábado">Saturday</span><span class="hours-time">9:00 - 17:00</span>
-        <span class="hours-day" data-en="Sunday" data-es="Domingo">Sunday</span><span class="hours-time">9:00 - 17:00</span>
+        <span class="hours-day" data-en="Saturday - Sunday" data-es="Sábado - Domingo">Saturday - Sunday</span><span class="hours-time">9:00 - 17:00</span>
       </div>
       <div class="hours-map-frame">
         <iframe src="https://maps.google.com/maps?q=C.+Timonel+9,+03182+Torrevieja,+Alicante,+Spain&output=embed&z=16" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Blur Coffee on Google Maps"></iframe>
@@ -338,8 +338,11 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
       <div class="t-label" style="color:var(--yellow);margin-bottom:16px;" data-en="VISIT US" data-es="VISÍTANOS">VISIT US</div>
       <div class="t-large" style="margin-bottom:16px;">Torrevieja,<br>Spain</div>
       <p class="t-body" style="max-width:360px;" data-en="Open daily · Check Instagram for hours" data-es="Abierto todos los días · Consulta Instagram para horarios">
-        Open daily · Check Instagram for hours<br>
-        <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;">Google Maps →</a>
+        Open daily · Check Instagram for hours
+      </p>
+      <p class="t-body" style="max-width:360px;margin-top:6px;">
+        <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="color:var(--purple);text-decoration:none;">Google Maps →</a><br>
+        <a href="mailto:hello@blur.coffee" style="color:var(--purple);text-decoration:none;">hello@blur.coffee</a>
       </p>
       <div style="margin-top:24px;">
         <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="display:inline-block;padding:12px 32px;border:1px solid rgba(255,255,255,.15);font-family:'Montserrat';font-weight:700;font-size:10px;letter-spacing:3px;color:#fff;text-decoration:none;transition:all .3s;">ORDER ON GLOVO</a>
@@ -362,54 +365,74 @@ body { background:var(--dark); font-family:'Raleway',sans-serif; color:#fff; ove
         Interested in serving Blur coffee at your establishment?
         Drop us a line.
       </p>
-      <input type="text" class="form-input" placeholder="Business name">
-      <input type="email" class="form-input" placeholder="Email">
-      <textarea class="form-textarea" placeholder="Tell us about your business..."></textarea>
-      <button class="form-btn" data-en="SEND INQUIRY" data-es="ENVIAR SOLICITUD">SEND INQUIRY</button>
+      <input type="text" id="wsName" class="form-input" placeholder="Business name">
+      <input type="email" id="wsEmail" class="form-input" placeholder="Email">
+      <textarea id="wsMsg" class="form-textarea" placeholder="Tell us about your business..."></textarea>
+      <button type="button" class="form-btn" onclick="sendInquiry()" data-en="SEND INQUIRY" data-es="ENVIAR SOLICITUD">SEND INQUIRY</button>
     </div>
   </div>
 </section>
 
 <!-- PARTNERS -->
 <div class="partners">
-  <span class="partner">NOMAD</span>
-  <span class="partner">THREE MARKS</span>
-  <span class="partner">INEFFABLE</span>
-  <span class="partner">KIMA</span>
-  <span class="partner">THE MATCHA BOWL</span>
+  <a class="partner" href="https://nomadcoffee.es/en/" target="_blank" rel="noopener">NOMAD</a>
+  <a class="partner" href="https://www.threemarkscoffee.com/en" target="_blank" rel="noopener">THREE MARKS</a>
+  <a class="partner" href="https://ineffablecoffee.com/en" target="_blank" rel="noopener">INEFFABLE</a>
+  <a class="partner" href="https://kimacoffee.com/" target="_blank" rel="noopener">KIMA</a>
+  <a class="partner" href="https://thematchabowl.com/en" target="_blank" rel="noopener">THE MATCHA BOWL</a>
   <span class="partner">ROA</span>
-  <span class="partner">MINOR FIGURES</span>
-  <span class="partner">ROOFTOP SMOKEHOUSE</span>
+  <a class="partner" href="https://minorfigures.com/" target="_blank" rel="noopener">MINOR FIGURES</a>
+  <a class="partner" href="https://rooftopsmokehouse.com/en" target="_blank" rel="noopener">ROOFTOP SMOKEHOUSE</a>
 </div>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div style="font-family:'Montserrat';font-weight:900;font-size:32px;letter-spacing:10px;margin-bottom:16px;">BLUR</div>
-  <p style="font-family:'Raleway';font-weight:300;font-size:11px;color:rgba(255,255,255,.18);letter-spacing:2px;line-height:2.2;">
+  <img src="img/logo-white.png" alt="BLUR" style="display:block;width:min(180px,50vw);height:auto;margin:0 auto 16px;">
+  <p style="font-family:'Raleway';font-weight:400;font-size:11px;color:rgba(255,255,255,.55);letter-spacing:2px;line-height:2.2;">
     SPECIALTY COFFEE · BRUNCH · WINE<br>
     TORREVIEJA, ALICANTE, SPAIN
   </p>
+  <p style="margin-top:20px;font-family:'Raleway';font-weight:400;font-size:12px;color:rgba(255,255,255,.55);letter-spacing:1px;line-height:1.9;">
+    C. Timonel, 9, 03182 Torrevieja, Alicante<br>
+    <a href="mailto:hello@blur.coffee" style="color:rgba(255,255,255,.7);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);">hello@blur.coffee</a>
+  </p>
   <div style="margin-top:24px;display:flex;justify-content:center;gap:28px;">
-    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">INSTAGRAM</a>
-    <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GLOVO</a>
-    <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.18);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
+    <a href="https://www.instagram.com/blur.coffee.torrevieja/" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s;">INSTAGRAM</a>
+    <a href="https://glovoapp.com/es/es/torrevieja/stores/restaurante-blur-specialty-coffee-brunch-wine-torrevieja" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s;">GLOVO</a>
+    <a href="https://maps.app.goo.gl/8XzcS4Bbq2LzpM1G6" target="_blank" rel="noopener" style="font-family:'Montserrat';font-weight:600;font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.5);text-decoration:none;transition:color .3s;">GOOGLE MAPS</a>
   </div>
-  <p style="margin-top:36px;font-size:9px;color:rgba(255,255,255,.08);letter-spacing:1px;">
-    © 2025 BLUR COFFEE · PRIVACY POLICY · COOKIES
+  <p style="margin-top:36px;font-size:9px;color:rgba(255,255,255,.28);letter-spacing:1px;">
+    © 2026 BLUR COFFEE ·
+    <a href="privacy.html" style="color:rgba(255,255,255,.45);text-decoration:none;" data-en="PRIVACY POLICY" data-es="PRIVACIDAD">PRIVACY POLICY</a> ·
+    <a href="cookies.html" style="color:rgba(255,255,255,.45);text-decoration:none;" data-en="COOKIES" data-es="COOKIES">COOKIES</a>
   </p>
 </footer>
 
 <!-- COOKIE BANNER -->
 <div class="cookie" id="cookieBanner">
   <p data-en="We use cookies to improve your experience. By continuing, you agree to our cookie policy in accordance with GDPR." data-es="Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra política de cookies conforme al RGPD.">We use cookies to improve your experience. By continuing, you agree to our cookie policy in accordance with GDPR.</p>
-  <button class="cookie-btn" onclick="dismissCookie()" data-en="SETTINGS" data-es="AJUSTES">SETTINGS</button>
-  <button class="cookie-ok" onclick="dismissCookie()" data-en="ACCEPT" data-es="ACEPTAR">ACCEPT</button>
+  <div class="cookie-actions">
+    <button class="cookie-btn" onclick="window.location.href='cookies.html'" data-en="SETTINGS" data-es="AJUSTES">SETTINGS</button>
+    <button class="cookie-ok" onclick="dismissCookie()" data-en="ACCEPT" data-es="ACEPTAR">ACCEPT</button>
+  </div>
 </div>
 
 <script>
 function closeMob(){document.getElementById('mob').classList.remove('open');document.getElementById('burger').classList.remove('open')}
 function toggleFaq(i){var a=document.getElementById('fa'+i),t=document.getElementById('ft'+i),o=a.classList.contains('open');document.querySelectorAll('.faq-a').forEach(function(el){el.classList.remove('open')});document.querySelectorAll('.faq-toggle').forEach(function(el){el.classList.remove('open')});if(!o){a.classList.add('open');t.classList.add('open')}}
 function dismissCookie(){document.getElementById('cookieBanner').style.display='none';try{localStorage.setItem('blur_cookie','1')}catch(e){}}
+function sendInquiry(){
+  var name=(document.getElementById('wsName').value||'').trim();
+  var email=(document.getElementById('wsEmail').value||'').trim();
+  var msg=(document.getElementById('wsMsg').value||'').trim();
+  var es=document.documentElement.lang==='es';
+  if(!name&&!msg){alert(es?'Por favor, rellena el formulario antes de enviar.':'Please fill in the form before sending.');return;}
+  var subject=(es?'Solicitud de colaboración — ':'Wholesale inquiry — ')+(name||'Blur');
+  var body=(es?'Nombre del negocio: ':'Business name: ')+name+'\n'
+          +(es?'Correo: ':'Email: ')+email+'\n\n'
+          +(es?'Mensaje:\n':'Message:\n')+msg+'\n';
+  window.location.href='mailto:hello@blur.coffee?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+}
 if(typeof localStorage!=='undefined'&&localStorage.getItem('blur_cookie'))document.getElementById('cookieBanner').style.display='none';
 
 // Language toggle
